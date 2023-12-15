@@ -16,10 +16,10 @@ read -n1 -s -r -p "Press any key to continue to cfdisk... " disk_continue
 cfdisk $install_disk
 
 # Format partitions
-read -p "The next part of the setup will format the root and EFI partitions, are you sure you want to continue? " disk_format_confirm && [[ $disk_format_confirm == [yY] || $disk_format_confirm == [yY][eE][sS] ]] || exit 1
-echo -e "\nWhere is your root partition located? (It will be formatted as ext4) " root_partition
+read -p "The next part of the setup will format the root and EFI partitions, are you sure you want to continue? (Y/N)" disk_format_confirm && [[ $disk_format_confirm == [yY] || $disk_format_confirm == [yY][eE][sS] ]] || exit 1
+read -p "Where is your root partition located? (It will be formatted as ext4) " root_partition
 mkfs.ext4 $root_partition
-echo -e "Where is your EFI System Partition located? (It will be formatted as FAT32) " efi_partition
+read -p "Where is your EFI System Partition located? (It will be formatted as FAT32) " efi_partition
 mkfs.fat -F 32 $efi_partition
 
 # Mount partitions
