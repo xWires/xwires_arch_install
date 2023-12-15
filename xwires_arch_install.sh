@@ -16,7 +16,7 @@ read -n1 -s -r -p "Press any key to continue to cfdisk... " disk_continue
 cfdisk $install_disk
 
 # Format partitions
-read -p "The next part of the setup will format the root and EFI partitions, are you sure you want to continue? (Y/N)" disk_format_confirm && [[ $disk_format_confirm == [yY] || $disk_format_confirm == [yY][eE][sS] ]] || exit 1
+read -p "The next part of the setup will format the root and EFI partitions, are you sure you want to continue? (Y/N) " disk_format_confirm && [[ $disk_format_confirm == [yY] || $disk_format_confirm == [yY][eE][sS] ]] || exit 1
 read -p "Where is your root partition located? (It will be formatted as ext4) " root_partition
 mkfs.ext4 $root_partition
 read -p "Where is your EFI System Partition located? (It will be formatted as FAT32) " efi_partition
@@ -38,3 +38,12 @@ pacstrap -K /mnt base linux linux-firmware firefox vim
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
+
+# Configuration
+echo -e "The system will now be configured with UK/GB based settings. You may change this after installation has completed."
+read -n1 -s -r -p "Press any key to continue... " config_continue
+echo -e "\nSetting timezone..."
+arch-chroot /mnt ln -sf /usr/share/zoneinfo/GB /etc/localtime
+arch-chroot /mnt hwclock --systohc
+echo -e "\nSetting locale..."
+arch-chroot /mnt curl
