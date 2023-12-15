@@ -34,7 +34,7 @@ then
 fi
 
 # Install packages
-pacstrap -K /mnt base linux linux-firmware firefox vim
+pacstrap -K /mnt base linux linux-firmware firefox vim wget grub efibootmgr
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -46,4 +46,19 @@ echo -e "\nSetting timezone..."
 arch-chroot /mnt ln -sf /usr/share/zoneinfo/GB /etc/localtime
 arch-chroot /mnt hwclock --systohc
 echo -e "\nSetting locale..."
-arch-chroot /mnt curl
+arch-chroot /mnt wget -O /etc/locale.gen https://raw.githubusercontent.com/TangledWiresYT/xwires_arch_install/main/locale.gen
+arch-chroot /mnt locale-gen
+echo "LANG=en.GB.UTF-8" > /mnt/etc/locale.conf
+echo "KEYMAP=uk" > /mnt/etc/vconsole.conf
+read -p "What should the hostname be? " system_hostname
+echo $system_hostname > /mnt/etc/hostname
+echo "Set the root password"
+arch-chroot /mnt passwd
+
+# GRUB install
+echo -e "\nInstalling GRUB"
+arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+
+read -n1 -s -r -p "\n\nInstallation complete! Press any key to reboot..." reboot
+systemctl reboot
