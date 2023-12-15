@@ -34,7 +34,7 @@ then
 fi
 
 # Install packages
-pacstrap -K /mnt base linux linux-firmware firefox vim wget grub efibootmgr
+pacstrap -K /mnt base linux linux-firmware firefox vim wget grub efibootmgr networkmanager
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -60,5 +60,5 @@ echo -e "\nInstalling GRUB"
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
-read -n1 -s -r -p "\n\nInstallation complete! Press any key to reboot..." reboot
+read -n1 -s -r -p "Installation complete! Press any key to reboot..." reboot
 systemctl reboot
