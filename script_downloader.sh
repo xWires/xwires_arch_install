@@ -12,6 +12,8 @@ then
         exit 1
     else
         curl https://raw.githubusercontent.com/TangledWiresYT/xwires_arch_install/main/arch_install_minimal.sh > minimal_installer.sh
+        chmod +x minimal_installer.sh
+        echo -e "\nDownloaded installer to minimal_installer.sh"
     fi
 elif [ $installer_number == 2 ]
 then
@@ -21,4 +23,6 @@ then
         exit 1
     else
         curl https://raw.githubusercontent.com/TangledWiresYT/xwires_arch_install/main/arch_install_kde.sh > kde_arch_installer.sh
+        chmod +x kde_arch_installer.sh
+        echo -e "\nDownloaded installer to kde_arch_installer.sh
 fi
