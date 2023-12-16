@@ -34,7 +34,7 @@ then
 fi
 
 # Install packages
-pacstrap -K /mnt base linux linux-firmware firefox vim wget grub efibootmgr networkmanager sudo
+pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
