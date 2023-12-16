@@ -3,7 +3,7 @@ echo -e "\n1. Minimal"
 echo -e "2. KDE Plasma"
 echo -e "3. GNOME\n"
 
-read -p "Enter a number between 1 and 2: " installer_number
+read -p "Enter a number between 1 and 3: " installer_number
 
 if [ $installer_number == 1 ]
 then
