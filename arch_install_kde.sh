@@ -56,8 +56,9 @@ read -p "What should the hostname be? " system_hostname
 echo $system_hostname > /mnt/etc/hostname
 echo "Set the root password"
 arch-chroot /mnt passwd
-echo "Enabling sddm"
+echo "Enabling services"
 arch-chroot /mnt systemctl enable sddm
+arch-chroot /mnt systemctl enable NetworkManager
 
 # GRUB install
 echo -e "\nInstalling GRUB"
