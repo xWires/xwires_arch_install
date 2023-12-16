@@ -1,4 +1,4 @@
-echo -e "\nxWires' Arch Linux Installer with KDE\n"
+echo -e "\nxWires Arch Linux Installer with KDE\n"
 
 # Set the keyboard layout to UK
 read -p "Set the keyboard layout to UK? (Y/N) " layout_change_confirm

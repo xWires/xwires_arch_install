@@ -1,4 +1,4 @@
-echo -e "\nxWires' Minimal Arch Linux Installer\n"
+echo -e "\nxWires Minimal Arch Linux Installer\n"
 
 # Set the keyboard layout to UK
 read -p "Set the keyboard layout to UK? (Y/N) " layout_change_confirm
