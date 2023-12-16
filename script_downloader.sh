@@ -24,5 +24,7 @@ then
     else
         curl https://raw.githubusercontent.com/TangledWiresYT/xwires_arch_install/main/arch_install_kde.sh > kde_arch_installer.sh
         chmod +x kde_arch_installer.sh
-        echo -e "\nDownloaded installer to kde_arch_installer.sh
-fi
+        echo -e "\nDownloaded installer to kde_arch_installer.sh"
+else
+    echo -e "\nThat wasn't one of the options."
+    exit 1
