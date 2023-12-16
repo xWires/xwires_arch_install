@@ -4,7 +4,7 @@ echo "2. KDE Plasma"
 
 read -p "Enter a number between 1 and 2: " installer_number
 
-if [ $installer_number == 1]
+if [ $installer_number == 1 ]
 then
     if [ -f minimal_installer.sh ]
     then
