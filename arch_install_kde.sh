@@ -36,7 +36,7 @@ then
 fi
 
 # Install packages
-pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo xorg-server plasma-meta konsole kwrite dolphin ark plasma-wayland-session egl-wayland wayland
+pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo xorg-server plasma-meta konsole kwrite dolphin ark plasma-wayland-session egl-wayland wayland sddm
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -56,6 +56,8 @@ read -p "What should the hostname be? " system_hostname
 echo $system_hostname > /mnt/etc/hostname
 echo "Set the root password"
 arch-chroot /mnt passwd
+echo "Enabling sddm"
+arch-chroot /mnt systemctl enable sddm
 
 # GRUB install
 echo -e "\nInstalling GRUB"
