@@ -1,6 +1,6 @@
 echo -e "\nWhich installer do you want to download?"
 echo -e "\n1. Minimal"
-echo "2. KDE Plasma"
+echo -e "2. KDE Plasma\n"
 
 read -p "Enter a number between 1 and 2: " installer_number
 
