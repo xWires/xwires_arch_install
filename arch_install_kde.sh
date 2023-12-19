@@ -36,7 +36,8 @@ then
 fi
 
 # Install packages
-pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo xorg-server plasma-meta konsole kwrite dolphin ark plasma-wayland-session egl-wayland wayland sddm firefox
+read -p "What additional packages do you want to install? (Separated by spaces, leave blank for no extra packages) " extra_packages
+pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo xorg-server plasma-meta konsole kwrite dolphin ark plasma-wayland-session egl-wayland wayland sddm firefox $extra_packages
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab

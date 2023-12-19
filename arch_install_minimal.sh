@@ -36,7 +36,8 @@ then
 fi
 
 # Install packages
-pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo
+read -p "What additional packages do you want to install? (Separated by spaces, leave blank for no extra packages) " extra_packages
+pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo $extra_packages
 
 # Fstab
 genfstab -U /mnt >> /mnt/etc/fstab
