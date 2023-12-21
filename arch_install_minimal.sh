@@ -107,7 +107,6 @@ if [ -n "$1" ]; then
 		exit 1
 	fi
 	$1
-	echo "Done"
 	exit
 fi
 
