@@ -1,15 +1,5 @@
 #!/bin/bash
 
-if [ -n "$1" ]; then
-	if ! type "$1" &> /dev/null; then
-		echo "The function $1 does not exist!"
-		exit 1
-	fi
-	$1
-	echo "Done"
-	exit
-fi
-
 echo -e "\nxWires Arch Linux Installer with KDE\n"
 
 # Set the keyboard layout to UK
@@ -117,5 +107,15 @@ function fullInstall {
     installGRUB
     installComplete
 }
+
+if [ -n "$1" ]; then
+	if ! type "$1" &> /dev/null; then
+		echo "The function $1 does not exist!"
+		exit 1
+	fi
+	$1
+	echo "Done"
+	exit
+fi
 
 fullInstall
