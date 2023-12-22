@@ -173,8 +173,9 @@ function editMirrorList {
 # Install packages
 function installPackages {
     if [ -n "$1" ]; then
+        $extra_packages = $1
         if [ $1 == "none" ]; then
-            return
+            $extra_packages = ""
         fi
         pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo $1
     else
