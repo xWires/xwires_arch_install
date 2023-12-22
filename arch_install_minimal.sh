@@ -118,7 +118,7 @@ EOL
 )
 
         # Create partitions
-        echo "$sfdisk_input" | sfdisk --no-reread "$disk"
+        echo "$sfdisk_input" | sfdisk --no-reread "$1"
     else
         read -p "Which disk will Arch Linux be installed to? " install_disk
         echo -e "\nIf you are using UEFI, you will need to make 2 partitions, a root partition (/) and an EFI System Partition (/boot)\n"
@@ -133,7 +133,7 @@ function formatPartitions {
         umount -q $1
         mkfs.ext4 $1
         umount -q $2
-        mkfs.fat -F 32 $2pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo $extra_packages
+        mkfs.fat -F 32 $2
         mount --mkdir $1 /mnt
         mount --mkdir $2 /mnt/boot
     else
