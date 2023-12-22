@@ -10,7 +10,7 @@ To use this script, download the `script_downloader,sh` file onto your Arch Linu
 
 (Currently this feature is only available on the Minimal installer)
 
-### WARNING: Using the unattended installer will wipe the entire disk, causing irreversible damage to all files
+### WARNING: Using the unattended installer will wipe the entire disk, causing irreversible damage to everything on it
 
 To use the unattended installer, you must pass options after the name of the script. These are the options you can use:
 
