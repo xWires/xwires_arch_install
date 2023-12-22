@@ -59,9 +59,8 @@ while [[ $# -gt 0 ]]; do
       shift 2
       ;;
     --rootPassword)
-      shift
-      rootPassword="$1"
-      shift
+      rootPassword="$2"
+      shift 2
       ;;
     --)
       shift
