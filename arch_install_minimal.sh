@@ -49,11 +49,6 @@ while [[ $# -gt 0 ]]; do
       ukMirrors="$2"
       shift 2
       ;;
-    --extraPackages)
-      shift
-      extraPackages="$1"
-      shift
-      ;;
     --hostname)
       hostname="$2"
       shift 2
@@ -61,6 +56,11 @@ while [[ $# -gt 0 ]]; do
     --rootPassword)
       rootPassword="$2"
       shift 2
+      ;;
+    --extraPackages)
+      shift
+      extraPackages="$1"
+      shift
       ;;
     --)
       shift
