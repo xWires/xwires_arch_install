@@ -2,7 +2,7 @@
 
 echo -e "\nxWires Minimal Arch Linux Installer\n"
 
-OPTIONS=$(getopt --long ukLayout:,syncTime:,installDisk:,rootSize:,efiSize:,ukMirrors:,extraPackages: -n '$0' -- "$@")
+OPTIONS=$(getopt -o "" --long ukLayout:,syncTime:,installDisk:,rootSize:,efiSize:,ukMirrors:,extraPackages: -n '$0' -- "$@")
 
 if [ $? -ne 0 ]; then
   echo "Error: Invalid options. Exiting..." >&2
