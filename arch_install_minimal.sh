@@ -177,7 +177,7 @@ function installPackages {
         if [ $1 == "none" ]; then
             extra_packages=""
         fi
-        pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo $1
+        pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo $extra_packages
     else
         read -p "What additional packages do you want to install? (Separated by spaces, leave blank for no extra packages) " extra_packages
         pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo $extra_packages
