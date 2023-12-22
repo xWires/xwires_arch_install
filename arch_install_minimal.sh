@@ -219,7 +219,7 @@ function configure {
         echo $system_hostname > /mnt/etc/hostname
     fi
     if [ -n "$2" ]; then
-        echo "root:$2" | chpasswd
+        arch-chroot /mnt /bin/bash -c "echo 'root:$2' | chpasswd"
     else
         echo "Set the root password"
         arch-chroot /mnt passwd
