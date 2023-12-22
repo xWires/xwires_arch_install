@@ -2,7 +2,7 @@
 
 echo -e "\nxWires Minimal Arch Linux Installer\n"
 
-OPTIONS=$(getopt -o "" --long ukLayout:,syncTime:,installDisk:,rootSize:,efiSize:,ukMirrors:,extraPackages: -n '$0' -- "$@")
+OPTIONS=$(getopt -o "" --long ukLayout:,syncTime:,installDisk:,rootSize:,efiSize:,ukMirrors:,extraPackages:,hostname:,rootPassword -n '$0' -- "$@")
 
 if [ $? -ne 0 ]; then
   echo "Error: Invalid options. Exiting..." >&2
@@ -19,6 +19,8 @@ rootSize=
 efiSize=
 ukMirrors=
 extraPackages=
+hostname=
+rootPassword=
 
 # Process options
 while [[ $# -gt 0 ]]; do
@@ -50,6 +52,15 @@ while [[ $# -gt 0 ]]; do
     --extraPackages)
       shift
       extraPackages="$1"
+      shift
+      ;;
+    --hostname)
+      hostname="$2"
+      shift 2
+      ;;
+    --rootPassword)
+      shift
+      rootPassword="$1"
       shift
       ;;
     --)
@@ -201,10 +212,18 @@ function configure {
     arch-chroot /mnt locale-gen
     echo "LANG=en.GB.UTF-8" > /mnt/etc/locale.conf
     echo "KEYMAP=uk" > /mnt/etc/vconsole.conf
-    read -p "What should the hostname be? " system_hostname
-    echo $system_hostname > /mnt/etc/hostname
-    echo "Set the root password"
-    arch-chroot /mnt passwd
+    if [ -n "$1" ]; then
+        echo $1 > /mnt/etc/hostname
+    else
+        read -p "What should the hostname be? " system_hostname
+        echo $system_hostname > /mnt/etc/hostname
+    fi
+    if [ -n "$2" ]; then
+        echo "root:$2" | chpasswd
+    else
+        echo "Set the root password"
+        arch-chroot /mnt passwd
+    fi
 }
 
 # GRUB install
@@ -227,7 +246,7 @@ function fullInstall {
     editMirrorList $ukMirrors
     installPackages $extraPackages
     fstab
-    configure
+    configure $hostname $rootPassword
     installGRUB
     installComplete
 }
