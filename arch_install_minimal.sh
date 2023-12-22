@@ -133,7 +133,7 @@ function formatPartitions {
         umount -q $1
         mkfs.ext4 $1
         umount -q $2
-        mkfs.fat -F 32 $2
+        mkfs.fat -F 32 $2pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo $extra_packages
         mount --mkdir $1 /mnt
         mount --mkdir $2 /mnt/boot
     else
@@ -227,14 +227,5 @@ function fullInstall {
     installGRUB
     installComplete
 }
-
-if [ -n "$1" ]; then
-	if ! type "$1" &> /dev/null; then
-		echo "The function $1 does not exist!"
-		exit 1
-	fi
-	$1
-	exit
-fi
 
 fullInstall

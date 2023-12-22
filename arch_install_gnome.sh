@@ -108,13 +108,4 @@ function fullInstall {
     installComplete
 }
 
-if [ -n "$1" ]; then
-	if ! type "$1" &> /dev/null; then
-		echo "The function $1 does not exist!"
-		exit 1
-	fi
-	$1
-	exit
-fi
-
 fullInstall
