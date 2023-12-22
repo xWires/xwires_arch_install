@@ -192,7 +192,7 @@ function fstab {
 # Configuration
 function configure {
     echo -e "The system will now be configured with UK/GB based settings. You may change this after installation has completed."
-    read -n1 -s -r -p "Press any key to continue... " config_continue
+    sleep 2
     echo -e "\nSetting timezone..."
     arch-chroot /mnt ln -sf /usr/share/zoneinfo/GB /etc/localtime
     arch-chroot /mnt hwclock --systohc
