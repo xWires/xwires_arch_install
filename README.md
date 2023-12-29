@@ -4,7 +4,7 @@
 
 ## Overview
 
-To use this script, run `wget https://arch.tangledwires.xyz` on your Arch Linux live iso and execute the script it downloads, it will give you a menu of what installer to download. Once you have done that, run the installer and follow the instructions.
+To use this script, run `wget -O install.sh https://arch.tangledwires.xyz` on your Arch Linux live iso and execute the script it downloads, it will give you a menu of what installer to download. Once you have done that, run the installer and follow the instructions.
 
 ## Unattended install
 
