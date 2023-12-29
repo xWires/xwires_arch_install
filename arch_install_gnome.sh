@@ -50,7 +50,7 @@ function editMirrorList {
 # Install packages
 function installPackages {
     read -p "What additional packages do you want to install? (Separated by spaces, leave blank for no extra packages) " extra_packages
-    pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo xorg-server egl-wayland wayland firefox gnome gnome-extra $extra_packages
+    pacstrap -K /mnt base linux linux-firmware vim wget grub efibootmgr networkmanager sudo xorg-server egl-wayland wayland firefox gnome gnome-tweaks $extra_packages
 }
 
 # Fstab
