@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "\nxWires Arch Linux Installer with KDE\n"
+echo -e "\nxWires Arch Linux Installer with GNOME\n"
 
 # Set the keyboard layout to UK
 function keyboardLayout {
