@@ -1,5 +1,7 @@
 # xWires Arch Install Scripts
 
+(No support will be provided with this script)
+
 ## UEFI IS REQUIRED
 
 ## Overview
