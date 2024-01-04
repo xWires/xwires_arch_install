@@ -140,7 +140,7 @@ EOL
 
 # Format partitions
 function formatPartitions {
-    if [[ "$1" -gt 1 ]] && [[ "$2" -gt 1 ]]; then
+    if [[ -n "$1" ]] && [[ -n "$2" ]]; then
         umount -q $1
         mkfs.ext4 $1
         umount -q $2
