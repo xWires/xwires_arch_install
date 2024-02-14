@@ -1,3 +1,8 @@
+#!/bin/bash
+
+set -e 
+set -o pipefail
+
 echo -e "\nWhich installer do you want to download?"
 echo -e "\n1. Minimal"
 echo -e "2. KDE Plasma"
