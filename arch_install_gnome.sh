@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e 
+set -o pipefail
+
 echo -e "\nxWires Arch Linux Installer with GNOME\n"
 
 # Set the keyboard layout to UK
