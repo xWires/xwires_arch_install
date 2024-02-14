@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e 
+set -o pipefail
+
 echo -e "\nxWires Minimal Arch Linux Installer\n"
 
 OPTIONS=$(getopt -o "" --long ukLayout:,syncTime:,installDisk:,rootSize:,efiSize:,ukMirrors:,extraPackages:,hostname:,rootPassword: -n '$0' -- "$@")
