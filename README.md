@@ -1,3 +1,5 @@
+# WARNING: These scripts are no longer functional and should not be used.
+
 # xWires Arch Install Scripts
 
 (No support will be provided with this script)
